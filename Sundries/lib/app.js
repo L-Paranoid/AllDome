@@ -8,9 +8,13 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
+var _path = require('path');
+
+var _path2 = _interopRequireDefault(_path);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// var express = require('express');
+var app = (0, _express2.default)(); // var express = require('express');
 // var bodyParser = require('body-parser');
 
 // var app = express();
@@ -32,16 +36,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // })
 
 //以下为es6写法
-var app = (0, _express2.default)();
+
 var router = (0, _express.Router)();
-//解析JSON
 app.use(_bodyParser2.default.json());
-//解析from表单格式
 app.use(_bodyParser2.default.urlencoded({ extended: true }));
-router.get(/\/|login/, function (request, response) {
-  response.sendFile(__dirname + '/public/login.html');
+router.get('/login', function (request, response, next) {
+  console.log(__dirname, _path2.default.resolve());
+  response.sendFile(_path2.default.resolve() + '/public/login.html');
 });
 app.use('/', router);
 app.listen(3000, function () {
-  console.log('server listening at port 3000 ...');
+  console.log('server listening ar port 3000 ');
 });
