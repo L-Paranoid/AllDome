@@ -25,7 +25,8 @@
     //marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
     map.enableDragging();
     map.enableScrollWheelZoom(true);
-    var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/fox.gif", new BMap.Size(300,157));
-	var marker2 = new BMap.Marker(point1,{icon:myIcon});  // 创建标注
-	map.addOverlay(marker2);
+    var myIcons = new BMap.Icon("http://192.168.220.82:8080/pttlCrm/res/images/ysp-map-adress.png", new BMap.Size(200,150));
+    var marker1 = new BMap.Marker(point1,{icon:myIcons});  // 创建标注
+    map.addOverlay(marker1);
+    map.panTo(point1);
 </script>
